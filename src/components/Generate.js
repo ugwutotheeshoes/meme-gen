@@ -4,7 +4,7 @@ import { Image, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 const Generate = () => {
   const [index, setIndex] = useState(0);
-  const {title, img} = memes[index];
+  const {img} = memes[index];
 
   const checkNumber = (number) => {
     if (number > memes.length - 1){
@@ -27,7 +27,7 @@ const Generate = () => {
   <article >
     <div >
     <CloudinaryContext cloudName="ugwutotheeshoes">
-            <Image publicId= {img} alt={title} className="meme">
+            <Image publicId= {img} className="meme">
                 <Transformation effect="sharpen" gravity="auto" crop="fill" />
             </Image>
         </CloudinaryContext>
