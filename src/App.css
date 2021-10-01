@@ -35,6 +35,13 @@ h2 {
   }
 }
 
+@media screen and (max-width: 642px) {
+  .imgcontainer {
+    width: 60vw;
+    height: 80vw;
+  }
+}
+
 /*
 =============== 
 Reviews
@@ -48,7 +55,7 @@ Reviews
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
   height: 7rem;
   padding: 0.1rem 2rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
