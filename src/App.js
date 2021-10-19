@@ -1,33 +1,33 @@
-import React from 'react';
-import './App.css';
-import LogoutButton from './components/Logout';
-import LoginButton from './components/Login';
-import Loading from './components/Loading';
-import Generate from './components/Generate';
-import Error from './components/Error';
-import { useAuth0 } from '@auth0/auth0-react';
+import "./App.css";
+import LogoutButton from "./components/Logout";
+import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./components/Loading";
+import LoginButton from "./components/Login";
+import Generate from "./components/Generate";
+import Error from "./components/Error";
 
-function App() {
-  const { isLoading } = useAuth0();
-  const { isAuthenticated } = useAuth0();
+export default function App() {
+  const { isLoading, loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   if (isLoading) {
-      return <Loading />
+    return <Loading />;
   }
 
   return (
-      <main className="main">
-        <div className="title">
-          <h2>meme generator</h2>
-          <div className="btn">
-            { isAuthenticated ? <LogoutButton /> : <LoginButton />}
-          </div>
+    <main className="main">
+      <div className="title">
+        <h2>meme generator</h2>
+        <div className="btn">
+          {isAuthenticated ? (
+            <LogoutButton logout={logout} />
+          ) : (
+            <LoginButton loginWithRedirect={loginWithRedirect} />
+          )}
         </div>
-        <div className="container">
-          { isAuthenticated ? <Generate /> : <Error /> }
-        </div>
-      </main>
-    );
+      </div>
+      <div className="container">
+        {isAuthenticated ? <Generate /> : <Error />}
+      </div>
+    </main>
+  );
 }
-
-export default App;

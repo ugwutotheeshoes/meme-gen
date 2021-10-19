@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Error = () => {
-    return (
-        <div className="access">
-            Log in to access the meme generator
-        </div>
-    )
-}
+  return <div className="access">Log in to access the meme generator</div>;
+};
 
-export default Error
+export default Error;
